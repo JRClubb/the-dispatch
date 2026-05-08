@@ -39,13 +39,13 @@ No MCPs. No paid templates. No connector maze.
 4. Copy the contents of [BOOTSTRAP.md](BOOTSTRAP.md), paste into Claude Code, and press Enter.
 5. Answer the short setup questions.
 
-Your vault is built: folders, briefing files, daily template, and eleven slash commands.
+Your vault is built: folders, briefing files, daily template, and the core command set.
 
 ---
 
 ## The shape of it
 
-The public Dispatch now uses the same station map as the private installation. The difference is not the skeleton. The difference is depth: the private vault has personal material, business commands, and private operating files. The public vault keeps the same map and a smaller command set.
+The public Dispatch uses the same station map as the private installation. The difference is not the skeleton. The difference is depth: the private vault has personal material, business commands, and private operating files. The public vault keeps the same map and a smaller command set.
 
 ```text
 00 - DEAD DROP/         incoming captures and loose material
@@ -66,7 +66,7 @@ The station names matter because they let Obsidian, Claude Code, Codex, and futu
 
 ## The commands
 
-Eleven commands. That remains the ceiling for the public version.
+The public version has a small daily loop, a weekly calibration layer, four deep-work commands, and one signature constraint command.
 
 **Daily loop**
 
@@ -88,13 +88,19 @@ Eleven commands. That remains the ceiling for the public version.
 - `/psycho` - pattern mirror through therapeutic lenses, not a diagnosis
 - `/dreaming` - slow associative pass on a stuck sentence, scene, or idea
 
+**Constraint command**
+
+- `/satisfice` - the anti-bloat filter: define good enough, cut the rest, and stop refining
+
 Full reference in [COMMANDS.md](COMMANDS.md).
 
 ---
 
 ## What makes it different
 
-**Voice firewall.** The relay never quietly becomes the author. J.R.'s writing and relay output are structurally separated. Relay additions live inside `> [!relay]` callout blocks so future analysis can tell the difference.
+**Voice firewall.** The relay never quietly becomes the author. User writing and relay output are structurally separated. Relay additions live inside `> [!relay]` callout blocks so future analysis can tell the difference.
+
+**Satisficing as a first-class command.** Most systems only grow. `/satisfice` makes subtraction part of the operating system: reduce the commitment wall, set the good-enough threshold, choose the smaller version, and move.
 
 **No replacement writing.** The relay edits, structures, surfaces, challenges, and asks better questions. The hands that write are yours.
 
@@ -115,6 +121,8 @@ Morning:
 Evening:
 
 4. Run `/closeday`.
+
+When the system starts getting bigger than the work, run `/satisfice`.
 
 That is the loop. Capture loose material into `00 - DEAD DROP/`. Use `/inbox` when the drop zone gets noisy. Use `/weekly` to keep the week honest.
 
@@ -138,7 +146,7 @@ Do not automate the writing. Automate the invitation to write.
 
 ## A note on what this is not
 
-This is not a total productivity system. It will not make every task visible, clean your inbox, or run your life by itself. It is a writing instrument and a memory layer. The output is signal, not throughput.
+This is not a total productivity system. It will not make every task visible, clean your inbox, or run your life by itself. It is a writing instrument, a memory layer, and a constraint tool. The output is signal, not throughput.
 
 If you want a tool that books your meetings and tracks every habit, this is not it. If you want a place where the texture of your actual thinking lives, and a relay that reads that texture and gives it back to you, this is exactly it.
 
@@ -148,4 +156,4 @@ If you want a tool that books your meetings and tracks every habit, this is not 
 
 Use it. Modify it. Make it yours. Built by [J.R. Clubb](https://jrclubb.substack.com).
 
-The discipline is the point: same skeleton, fewer commands, less ceremony. If you want to add another command, first ask whether one of the eleven already covers the job.
+The discipline is the point: same skeleton, fewer commands, less ceremony. If you want to add another command, run `/satisfice` first.
