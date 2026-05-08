@@ -1,6 +1,6 @@
 # The Dispatch - Command Reference
 
-Eleven slash commands. Five for the daily loop, two for weekly calibration, four for deep work when the loop is not enough. That is the public ceiling.
+A small command set for writing, memory, weekly calibration, and subtraction. The public Dispatch should feel distinctive without becoming a private life-management cockpit.
 
 The commands work best when the vault has been running for at least two weeks. The dispatches are the fuel. The first week will feel thin. That is the system working as designed.
 
@@ -32,6 +32,12 @@ The commands work best when the vault has been running for at least two weeks. T
 | `/psycho` | When patterns will not surface | Reads recent dispatches through therapeutic lenses and surfaces loops. Not a diagnosis. A mirror. |
 | `/dreaming [paste]` | When stuck on a sentence, scene, idea, or fragment | Slow associative pass. What is here, what it is reaching for, and the door that opens it wider. No editing. |
 
+## Constraint
+
+| Command | When | What it does |
+|---|---|---|
+| `/satisfice` | When the system, plan, task list, or decision is getting too big | Epstein/Simon anti-bloat filter. With no pasted input, builds a commitment wall. With pasted input, distills the plan: what it exists to do, what to cut, what to keep, where the fence is, and when to stop refining. |
+
 ---
 
 ## Station Paths
@@ -57,8 +63,8 @@ There is no public `/operator`, `/money`, `/outreach`, `/wiki`, `/ingest-book`, 
 
 Some of those exist in private installations. They are not in the public Dispatch on purpose.
 
-More analytical commands do not automatically produce better dispatches. They often create a more elegant way to avoid the writing. The daily loop and weekly calibration cover most of what the relay should be doing. The deep work commands cover the rest.
+The rule is not "never add anything." The rule is "make every addition earn its place." `/satisfice` earns its place because it protects the system from becoming the thing it was built to prevent.
 
-If you find yourself wishing for another command, write it yourself in `.claude/commands/`. But ask first whether the existing eleven already do the job.
+If you find yourself wishing for another command, write it yourself in `.claude/commands/`. But run `/satisfice` first.
 
 The discipline is the point.
