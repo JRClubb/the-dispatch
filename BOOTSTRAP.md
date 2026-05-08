@@ -7,7 +7,9 @@ The Dispatch is a field installation for people who think by writing.
 
 It is not a productivity dashboard. It is not a second brain cosplay project. It is a simple loop: capture what enters, write one honest dispatch a day, let the relay read the record, and return better questions than a blank page can give you.
 
-**Same skeleton. Eleven commands. One dispatch a day.**
+The public system has a small daily loop, a weekly calibration layer, four deep-work commands, and one signature constraint command: `/satisfice`.
+
+**Same skeleton. Small command set. One dispatch a day.**
 
 ---
 
@@ -37,7 +39,7 @@ With your vault open as the working directory in Claude Code, paste this entire 
 
 You are building a public Dispatch installation for a new user.
 
-Keep it simple. Do not add commands beyond the eleven listed here. Do not add MCPs, external automation platforms, or plugin dependencies. The system should work as a local Obsidian vault with Claude Code.
+Keep it simple. Do not add commands beyond the public command set listed here. Do not add MCPs, external automation platforms, or plugin dependencies. The system should work as a local Obsidian vault with Claude Code.
 
 Do not build anything until the interview is complete.
 
@@ -185,6 +187,12 @@ Create `SWITCHBOARD.md` in the vault root.
 | `/psycho` | When patterns will not surface | Therapeutic-lens mirror, not a diagnosis |
 | `/dreaming` | When stuck on a fragment | Slow associative pass |
 
+## Constraint
+
+| Command | When | What it does |
+|---|---|---|
+| `/satisfice` | When the system or decision is getting too big | Define good enough, cut the rest, stop refining |
+
 ---
 
 Today's dispatch: `01 - DISPATCHES/Daily/[TODAY].md`
@@ -251,7 +259,8 @@ _Archive/              retired material
 Morning: `/daily-spark` -> write the dispatch -> `/today`  
 Evening: `/closeday`  
 Weekly: `/weekly`  
-Capture anything: `/new [text]`
+Capture anything: `/new [text]`  
+When overbuilding: `/satisfice`
 
 ---
 
@@ -264,6 +273,14 @@ Ask first: `06 - RELAY/Briefing/`, `01 - DISPATCHES/`
 Append only: `01 - DISPATCHES/Daily/`. Dispatches are [NAME]'s. Morning Signal, Field Orders, and End of Dispatch sections only. Never overwrite the freewrite.
 
 Never edit attachments in `99 - ASSETS/` unless explicitly asked.
+
+---
+
+## Satisficing Rule
+
+Before adding a folder, command, automation, dashboard, or new layer, run `/satisfice`.
+
+Default threshold: if the smaller version would work for the next seven days, use the smaller version.
 
 ---
 
@@ -462,7 +479,7 @@ Also create today's dispatch at `01 - DISPATCHES/Daily/[TODAY].md` from the temp
 
 ## Step 7 - Create The Slash Commands
 
-Create these eleven files in `.claude/commands/`. Keep them short enough to use, but specific enough to work.
+Create these command files in `.claude/commands/`.
 
 ---
 
@@ -475,31 +492,22 @@ description: Morning signal. Writes a quote plus 2-3 questions into today's disp
 
 # /daily-spark
 
-Read:
-- The last 3 files in `01 - DISPATCHES/Daily/`
-- The last 7 relay Morning Signal callouts, only to avoid repetition
-- `06 - RELAY/Briefing/top-of-mind.md`
-- `06 - RELAY/Briefing/north-star.md`
-- Yesterday's `Tomorrow's signal` line from `/closeday`, if present
+Read the last 3 daily dispatches, the last 7 Morning Signal callouts for repetition, `06 - RELAY/Briefing/top-of-mind.md`, `06 - RELAY/Briefing/north-star.md`, and yesterday's `Tomorrow's signal` line if present.
 
-Produce:
-- One short quote, accurately attributed. If unsure, omit the quote rather than invent it.
-- 2-3 questions that come from the user's actual recent material.
+Produce one short quote plus 2-3 questions that come from the user's actual recent material.
 
-Question rules:
+Rules:
 - Specific beats broad.
 - Ask, do not advise.
-- No scolding, no therapy diagnosis, no productivity newsletter voice.
+- No scolding, no diagnosis, no productivity newsletter voice.
 - If the vault is thin, use simple stock questions.
 
-Stock questions when the vault is thin:
+Stock questions:
 - What has been taking up more space in your mind than you have admitted?
 - What is the one piece of work that would make today feel real?
 - What are you avoiding because the first step is annoying, not because it is hard?
 
-Write the result into today's file at `01 - DISPATCHES/Daily/YYYY-MM-DD.md` under `## Morning Signal`, inside the relay callout.
-
-If today's dispatch does not exist, create it from `01 - DISPATCHES/Templates/daily-dispatch-template.md`.
+Write the result into today's file at `01 - DISPATCHES/Daily/YYYY-MM-DD.md` under `## Morning Signal`, inside the relay callout. If today's dispatch does not exist, create it from the template.
 
 Output only: `Morning signal written.`
 ```
@@ -515,12 +523,7 @@ description: Build today's field orders from briefing, projects, and the morning
 
 # /today
 
-Read:
-- `06 - RELAY/Briefing/top-of-mind.md`
-- `06 - RELAY/Briefing/north-star.md`
-- Today's dispatch in `01 - DISPATCHES/Daily/`
-- Active project files in `04 - OPS/Projects/`
-- Open checkboxes in `04 - OPS/Tasks/` and `04 - OPS/Projects/`
+Read `06 - RELAY/Briefing/top-of-mind.md`, `06 - RELAY/Briefing/north-star.md`, today's dispatch, active project files in `04 - OPS/Projects/`, and open checkboxes in `04 - OPS/Tasks/` and `04 - OPS/Projects/`.
 
 Write `06 - RELAY/Plans/YYYY-MM-DD.md`:
 
@@ -560,13 +563,9 @@ description: End-of-day debrief. Reads the dispatch, closes loops, seeds tomorro
 
 # /closeday
 
-Read:
-- Today's dispatch in `01 - DISPATCHES/Daily/`
-- Today's plan in `06 - RELAY/Plans/`, if present
-- Last 3 dispatches
-- `06 - RELAY/Briefing/top-of-mind.md`
+Read today's dispatch, today's plan if present, last 3 dispatches, and `06 - RELAY/Briefing/top-of-mind.md`.
 
-Append an End of Dispatch callout to today's dispatch:
+Append this callout to today's dispatch:
 
 ```text
 > [!relay] End of Dispatch - HH:MM
@@ -584,10 +583,7 @@ Append an End of Dispatch callout to today's dispatch:
 > [One sentence that should feed tomorrow's /daily-spark.]
 ```
 
-Then suggest, but do not perform without approval:
-- anything to file
-- anything that should become a task
-- any briefing update
+Then suggest, but do not perform without approval: anything to file, anything that should become a task, any briefing update.
 
 Output:
 
@@ -645,8 +641,7 @@ Classify the capture:
 
 Create the smallest useful file. Do not over-expand. Preserve the user's words.
 
-Output one line:
-`Created: [type] - [path]`
+Output one line: `Created: [type] - [path]`
 ```
 
 ---
@@ -660,11 +655,7 @@ description: Weekly field review.
 
 # /weekly
 
-Read:
-- Last 7 daily dispatches
-- `06 - RELAY/Briefing/top-of-mind.md`
-- `06 - RELAY/Briefing/north-star.md`
-- Active projects in `04 - OPS/Projects/`
+Read the last 7 daily dispatches, `06 - RELAY/Briefing/top-of-mind.md`, `06 - RELAY/Briefing/north-star.md`, and active projects in `04 - OPS/Projects/`.
 
 Write `01 - DISPATCHES/Periodic/week-of-YYYY-MM-DD.md`:
 
@@ -701,11 +692,7 @@ description: Third-person portrait from vault evidence.
 
 # /stranger
 
-Read:
-- Last 7 dispatches
-- `06 - RELAY/Briefing/top-of-mind.md`
-- `06 - RELAY/Briefing/north-star.md`
-- Active projects in `04 - OPS/Projects/`
+Read last 7 dispatches, briefing files, and active projects.
 
 Write 3-5 paragraphs in third person about who the person in the vault appears to be this week.
 
@@ -755,10 +742,7 @@ description: Answer a question as the user would, using vault evidence.
 
 Search the vault for evidence related to the question.
 
-Read:
-- Last 30 dispatches if available
-- briefing files
-- relevant notes in `02 - INTEL/`, `03 - WORKS/`, `04 - OPS/`, and `05 - VITALS/`
+Read last 30 dispatches if available, briefing files, and relevant notes in `02 - INTEL/`, `03 - WORKS/`, `04 - OPS/`, and `05 - VITALS/`.
 
 Answer from evidence only. If the vault is silent, say so.
 
@@ -805,12 +789,93 @@ description: Slow associative pass on a stuck sentence, scene, idea, or fragment
 Do not edit the fragment. Do not give craft advice.
 
 Write three movements:
-
 1. What is here
 2. What it is reaching for
 3. The door
 
 Prose only. Slow, associative, useful.
+```
+
+---
+
+### `.claude/commands/satisfice.md`
+
+```markdown
+---
+description: Anti-bloat filter. Define good enough, cut the rest, and stop refining.
+---
+
+# /satisfice
+
+Use this when the system, plan, task list, project wall, prompt, folder structure, or decision is getting too big.
+
+One job: define the box, cut what is outside it, and stop when the good-enough threshold is met.
+
+## Mode 1 - Wall Audit (no argument)
+
+Use when `/satisfice` is run with no pasted input.
+
+Read:
+- `06 - RELAY/Plans/`
+- `04 - OPS/Tasks/`
+- `04 - OPS/Projects/`
+- `06 - RELAY/Briefing/top-of-mind.md`
+- `06 - RELAY/Briefing/north-star.md`
+
+Return:
+
+```markdown
+SATISFICE - Commitment Wall
+
+This exists to: make current commitments visible so something can be cut, parked, or narrowed.
+
+Active This Week:
+- [max 5]
+
+Running Background:
+- [practices/rhythms only]
+
+Deferred / Park:
+- [not active now]
+
+Should Cut:
+- [max 3]
+
+90-Day Question:
+If one commitment had to be cut or paused for the next 90 days, which one goes first?
+```
+
+## Mode 2 - Distill (with pasted input)
+
+Return:
+
+```markdown
+SATISFICE - [subject]
+
+This exists to: [one sentence]
+
+Threshold:
+[good-enough rule or "already met - stop refining"]
+
+Cut:
+- [max 3]
+
+Keep:
+- [max 3]
+
+Fence:
+[what this is allowed to do / not allowed to do]
+
+Final:
+[distilled version, decision, or specific changes]
+```
+
+Rules:
+- Output must be shorter than the input.
+- Do not add a new feature, folder, command, or framework to solve a simplicity problem.
+- For task lists, return three active items maximum.
+- For commitment walls, return five active commitments maximum.
+- If the decision is clear, say: `This is ready. Stop refining.`
 ```
 
 ---
@@ -833,24 +898,19 @@ Stations:
 05 - VITALS
 06 - RELAY
 
-Commands installed: 11
-
-Daily loop:
+Commands installed:
   /daily-spark   Morning signal
   /today         Field orders
   /closeday      End-of-day debrief
   /inbox         Dead Drop triage
   /new           Capture to the right place
-
-Weekly:
   /weekly        Field review
   /stranger      Portrait from evidence
-
-Deep work:
   /decode        Decode hot material
   /ghost         Answer from vault evidence
   /psycho        Pattern mirror
   /dreaming      Associative pass
+  /satisfice     Cut complexity and stop refining
 
 Recommended Obsidian view:
   Install Notebook Navigator and switch it to Dual Panel.
@@ -861,6 +921,9 @@ Tomorrow morning:
   3. Run /daily-spark.
   4. Write the dispatch.
   5. Run /today.
+
+When the system starts getting bigger than the work:
+  Run /satisfice.
 
 End of day:
   Run /closeday.
