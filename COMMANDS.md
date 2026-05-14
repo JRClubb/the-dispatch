@@ -1,70 +1,57 @@
-# The Dispatch - Command Reference
+# Command Reference
 
-A small command set for writing, memory, weekly calibration, and subtraction. The public Dispatch should feel distinctive without becoming a private life-management cockpit.
+The default command set is intentionally small enough to remember and complete enough to run a client-facing work system.
 
-The commands work best when the vault has been running for at least two weeks. The dispatches are the fuel. The first week will feel thin. That is the system working as designed.
+## Core Loop
 
----
-
-## Daily Loop
-
-| Command | When | What it does |
+| Command | Role | Primary Paths |
 |---|---|---|
-| `/daily-spark` | Morning, before writing | Writes a quote plus 2-3 questions into today's dispatch. Draws from recent dispatches, top-of-mind context, and yesterday's signal. Specific over broad. Invitation over advice. |
-| `/today` | After your dispatch | Builds the day's field orders. Reads top-of-mind, north-star, active projects, and the morning signal. Surfaces the One Thing: the most meaningful forward move, not the longest task list. |
-| `/closeday` | Evening | Processes the day. Surfaces patterns and contradictions across recent dispatches. Writes the End of Dispatch debrief inside a relay callout. Seeds tomorrow's signal. |
-| `/inbox` | When `00 - DEAD DROP/` fills up | Triages incoming captures. Reads, extracts, files, or proposes deletion. Nothing gets deleted without confirmation. |
-| `/new [anything]` | Anytime | Captures a task, idea, project, person, or note from natural language. Routes it into the right station without making you stop and file it manually. |
+| `/start` | Orient and check setup. | `System/`, `Machine/Briefing/`, `Machine/Systems/` |
+| `/interview` | Build personalization. | `Machine/Personalization/`, `Machine/Briefing/` |
+| `/daily-spark` | Generate the daily note starter. | `Human/03 - Journal/Daily/`, `Machine/Personalization/`, `Machine/Briefing/` |
+| `/inbox` | Process intake. | `Human/01 - Inbox/`, `Human/05 - Work/`, `Human/06 - Research/` |
+| `/today` | Build today's work map. | `Machine/Plans/`, `Human/05 - Work/`, `Machine/Briefing/` |
+| `/needle` | Pick the one next move. | `Machine/Plans/`, `Human/05 - Work/` |
+| `/close` | End the day and maintain context. | `Human/03 - Journal/Daily/`, `Machine/Plans/`, `Machine/Briefing/` |
 
-## Weekly Calibration
+## Work Layer
 
-| Command | When | What it does |
+| Command | Role | Primary Paths |
 |---|---|---|
-| `/weekly` | Sunday or Monday | Honest accounting of the week. What moved, what stalled, the gap between intended and actual. One priority for the week ahead. |
-| `/stranger` | Monthly, or when stuck | Third-person portrait of who you are this week, written from vault evidence rather than stated goals. Designed to feel slightly uncomfortable to read. |
+| `/content` | Draft practical content from real context. | `Human/05 - Work/Social/`, `Machine/Personalization/` |
+| `/tasks` | Clean the task queue. | `Human/05 - Work/TaskNotes/Tasks/` |
+| `/project` | Move one project forward. | `Human/05 - Work/Projects/` |
+| `/pipeline` | Review leads and active opportunities. | `Human/05 - Work/Pipeline/` |
+| `/outreach` | Draft or review outreach. | `Human/05 - Work/Outreach/`, `Human/05 - Work/Pipeline/` |
+| `/money` | Review revenue, invoices, and payment follow-ups. | `Human/05 - Work/Finance/`, `Human/05 - Work/Pipeline/` |
 
-## Deep Work
+## Maintenance
 
-| Command | When | What it does |
+| Command | Role | Primary Paths |
 |---|---|---|
-| `/decode` | Right after writing something with heat | Reads today's dispatch or pasted text and triages it into what is alive, what should be filed, what needs action, what you are not seeing, and the live questions. |
-| `/ghost [question]` | When you want a second opinion from yourself | Answers a question as you would, drawing only on vault evidence. Then scores confidence. When the vault is silent, it says so. |
-| `/psycho` | When patterns will not surface | Reads recent dispatches through therapeutic lenses and surfaces loops. Not a diagnosis. A mirror. |
-| `/dreaming [paste]` | When stuck on a sentence, scene, idea, or fragment | Slow associative pass. What is here, what it is reaching for, and the door that opens it wider. No editing. |
+| `/session` | Save a meaningful conversation or decision. | `Machine/Sessions/`, `Machine/Briefing/sessions/` |
+| `/satisfice` | Simplify a bloated plan, command, folder structure, or decision. | Current context |
 
-## Constraint
+## Optional Modules
 
-| Command | When | What it does |
-|---|---|---|
-| `/satisfice` | When the system, plan, task list, or decision is getting too big | Epstein/Simon anti-bloat filter. With no pasted input, builds a commitment wall. With pasted input, distills the plan: what it exists to do, what to cut, what to keep, where the fence is, and when to stop refining. |
+These can be added when the client actually needs them.
 
----
-
-## Station Paths
-
-| Station | Used by commands for |
+| Command | Use When |
 |---|---|
-| `00 - DEAD DROP/` | Loose captures, web clips, raw incoming material. `/inbox` processes this. |
-| `01 - DISPATCHES/Daily/` | Daily dispatches. Append-only. `/daily-spark`, `/today`, and `/closeday` write relay callouts here. |
-| `01 - DISPATCHES/Periodic/` | Weekly and monthly reviews. `/weekly` writes here. |
-| `02 - INTEL/` | Research, captures, questions, ideas, and source material. |
-| `03 - WORKS/` | Drafts, essays, voice reference, finished creative work. |
-| `04 - OPS/` | Projects, tasks, business, client work, money, and operations. `/today` reads active work here. |
-| `05 - VITALS/` | Body, health, family, home, identity, and physical reality. |
-| `06 - RELAY/Briefing/` | North-star, top-of-mind, about-me, and other machine-facing briefing files. |
-| `06 - RELAY/Plans/` | Daily plans generated by `/today`. |
-| `.claude/commands/` | The only place Claude Code scans for slash commands. |
+| `/client-prep` | The client has calls, shoots, sessions, delivery meetings, or account reviews. |
+| `/after-session` | The client needs a post-session closeout workflow. |
+| `/7plan` | Weekly planning will actually be used. |
+| `/lint` | The vault has enough research or documentation to need health checks. |
+| `/book` | The client works from books, PDFs, transcripts, or long source documents. |
+| `/harvest` | The client needs research-to-work synthesis. |
+| `/great-thinker` | The client wants thinking mode without artifact pressure. |
+| `/great-dreamer` | The client wants associative creative exploration. |
+| `/great-contrarian` | The client wants strategy challenge without nagging. |
+| `/great-ghost` | The client wants answers grounded in their own archive. |
+| `/great-stranger` | The client wants an outside read of what the vault reveals. |
 
----
+## Retired From Default Install
 
-## What Is Not In Here
+The default bootstrap does not ship old Dispatch commands such as `/closeday`, `/new`, `/weekly`, `/decode`, `/psycho`, `/dreaming`, `/ghost`, or `/stranger`.
 
-There is no public `/operator`, `/money`, `/outreach`, `/wiki`, `/ingest-book`, `/harvest`, `/make`, `/drift`, `/trace`, `/contradict`, `/post`, `/extract`, `/session`, `/clarity`, `/7plan`, `/needle`, `/tasks`, `/project`, or `/pipeline`.
-
-Some of those exist in private installations. They are not in the public Dispatch on purpose.
-
-The rule is not "never add anything." The rule is "make every addition earn its place." `/satisfice` earns its place because it protects the system from becoming the thing it was built to prevent.
-
-If you find yourself wishing for another command, write it yourself in `.claude/commands/`. But run `/satisfice` first.
-
-The discipline is the point.
+Some of those ideas survive as generic lenses or optional modules. They do not belong in the default menu.
