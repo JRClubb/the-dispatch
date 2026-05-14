@@ -1,42 +1,32 @@
 ---
-description: Process everything in Drop/. Triage, extract, file, trash. Find the signal in the noise.
+description: Process raw intake from the inbox.
 ---
 
-**Command: /inbox**
+# /inbox
 
-Process the inbox. Find the signal. Kill the noise. Nothing gets trashed without being read first.
+Read files in `Human/01 - Inbox/`.
 
----
+Classify each item:
 
-## Step 1 — Orient
+- `task`
+- `project`
+- `client`
+- `research`
+- `idea`
+- `writing`
+- `reference`
+- `trash candidate`
+- `needs human read`
 
-List every file in `Drop/`. List the current `Notes/` subfolders.
+Route suggestions:
 
----
+- tasks -> `Human/05 - Work/TaskNotes/Tasks/`
+- projects -> `Human/05 - Work/Projects/`
+- clients -> `Human/05 - Work/Clients/`
+- research -> `Human/06 - Research/`
+- ideas -> `Human/06 - Research/Ideas/`
+- writing -> `Human/04 - Writing/`
 
-## Step 2 — Triage each item
+Report first. Ask before moving, deleting, or rewriting source files.
 
-One label per item. Be ruthless.
-
-- **READING** — deserves a full read. Leave in inbox. Flag in report.
-- **READ + EXTRACT** — one good sentence or idea can be pulled; source deleted after. Pull the exact text. One-line summary. Flag strong extractions as captures.
-- **TASK** — specific actionable next step. Add as checkbox to relevant project file.
-- **KEEP: CAPTURE** — quote, observation, idea with genuine resonance. Route to the right frequency folder.
-- **KEEP: IDEA** — worth developing, not yet actionable. Route to the right frequency folder.
-- **TRASH** — noise. Vague. Generic. Duplicate.
-
----
-
-## Step 3 — Extraction pass
-
-Before anything gets trashed, sweep for:
-- A sentence sharp enough to keep
-- An angle that hasn't surfaced before
-- Anything that connects to active projects
-
-Pull exact text. Surface it. Then delete the source.
-
----
-
-## Step 4 — Report
-
+Return a short processing table and the one next cleanup move.
